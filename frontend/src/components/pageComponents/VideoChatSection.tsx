@@ -11,6 +11,7 @@ const VideoChatSection = (props: VideoChatSectionProps) => {
   return (
     <React.Fragment>
         <div className='max-w-full h-[45rem]'>
+            {/* @ts-ignore  */}
             <Frame stream={props.stream} localStream={props.localStream} remoteStream={props.remoteStream} />
         </div>
     </React.Fragment>

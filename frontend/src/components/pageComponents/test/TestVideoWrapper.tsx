@@ -25,6 +25,7 @@ const TestVideoWrapper = (props: TestVideoWrapperProps) => {
     <ChatContainer>
         <TopInfoBar
             roomId={roomId ? `RoomId - ${roomId}` : ""}
+            // @ts-ignore 
             connedtedWith={roomMembers.length === 0 ? "Disconnected" : roomMembers.length > 1 ? `Connected with ${userId !== roomMembers[0] ? roomMembers[0] : roomMembers[1]}` : <div className='w-full flex justify-center'><DotCircle /></div>}
           />
         <div className='flex w-full h-auto'>

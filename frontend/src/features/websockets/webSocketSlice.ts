@@ -24,7 +24,7 @@ export const webSocketSlice = createSlice({
       try {
         if (state.WS === null && state.connected === false) {
           let connection = new WebSocket(
-            `https://nevitech.xyz`
+            `wss://nevitech.xyz`
           );
           console.log("connected");
           state.WS = connection;

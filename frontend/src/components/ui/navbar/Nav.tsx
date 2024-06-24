@@ -21,13 +21,13 @@ function Nav() {
 
   return (
     <div
-      className={`navbar ${light && "bg-[#F875AA] text-black"} ${
-        dark && "bg-[#DA0C81] text-white"
+      className={`navbar ${light && "bg-[#000000] text-white"} ${
+        dark && "bg-[#000000] text-white"
       } transition-all duration-200 ease-in`}
     >
       <div className="navbar-start">
         <Link className="navbar-item" href={"/"}>
-          Omegle Clone
+          New Omegle
         </Link>
       </div>
       <Drawer />

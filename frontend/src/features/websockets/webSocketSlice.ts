@@ -15,71 +15,29 @@ interface params {
   port: string;
 }
 
-// export const webSocketSlice = createSlice({
-//   name: "websocket",
-//   initialState: WebSocketState,
-//   reducers: {
-//     connect: (state, action: PayloadAction<params>) => {
-//       // console.log(state.WS);
-//       try {
-//         if (state.WS === null && state.connected === false) {
-//           let connection = new WebSocket(
-//             `wss://nevitech.xyz`
-//           );
-//           console.log("connected");
-//           state.WS = connection;
-//           state.connected = true;
-//         } else {
-//           console.log(state.WS);
-//         }
-//       } catch (e) {
-//         state.WS = null;
-//         state.connected = false;
-//       }
-//     },
-//     disconnect: (state) => {
-//       state.WS = null;
-//       state.connected = false;
-//     },
-//   },
-// });
-
 export const webSocketSlice = createSlice({
   name: "websocket",
   initialState: WebSocketState,
   reducers: {
     connect: (state, action: PayloadAction<params>) => {
+      // console.log(state.WS);
       try {
-        if (state.WS === null && !state.connected) {
-          let connection = new WebSocket(`wss://nevitech.xyz`);
-          connection.onopen = () => {
-            console.log("WebSocket connected");
-            state.WS = connection;
-            state.connected = true;
-          };
-          connection.onerror = (error) => {
-            console.error("WebSocket error:", error);
-            state.WS = null;
-            state.connected = false;
-          };
-          connection.onclose = () => {
-            console.log("WebSocket disconnected");
-            state.WS = null;
-            state.connected = false;
-          };
+        if (state.WS === null && state.connected === false) {
+          let connection = new WebSocket(
+            `wss://nevitech.xyz/websocket`
+          );
+          console.log("connected");
+          state.WS = connection;
+          state.connected = true;
         } else {
-          console.log("WebSocket already connected:", state.WS);
+          console.log(state.WS);
         }
       } catch (e) {
-        console.error("WebSocket connection error:", e);
         state.WS = null;
         state.connected = false;
       }
     },
     disconnect: (state) => {
-      if (state.WS) {
-        state.WS.close();
-      }
       state.WS = null;
       state.connected = false;
     },

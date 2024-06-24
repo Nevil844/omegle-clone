@@ -24,7 +24,7 @@ export const webSocketSlice = createSlice({
       try {
         if (state.WS === null && state.connected === false) {
           let connection = new WebSocket(
-            `http://ec2-65-0-96-132.ap-south-1.compute.amazonaws.com:8080`
+            `https://nevitech.xyz`
           );
           console.log("connected");
           state.WS = connection;
